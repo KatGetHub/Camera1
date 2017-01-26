@@ -14,7 +14,11 @@ import com.badlogic.gdx.graphics.Texture;
 import gdx.menus.TbMenu;
 import gdx.menus.TbsMenu;
 
-public class ScrGameover implements Screen, InputProcessor {
+/**
+ *
+ * @author vachb8648
+ */
+public class ScrWin implements Screen, InputProcessor {
 
     GamMenu gamMenu;
     TbsMenu tbsMenu;
@@ -24,7 +28,7 @@ public class ScrGameover implements Screen, InputProcessor {
     BitmapFont screenName;
     Texture BackGround;
 
-    public ScrGameover(GamMenu _gamMenu) {  //Referencing the main class.
+    public ScrWin(GamMenu _gamMenu) {  //Referencing the main class.
         gamMenu = _gamMenu;
     }
 
@@ -34,7 +38,7 @@ public class ScrGameover implements Screen, InputProcessor {
         batch = new SpriteBatch();
         screenName = new BitmapFont();
         tbMenu = new TbMenu("MENU", tbsMenu);
-        BackGround = new Texture(Gdx.files.internal("dead.png"));
+        BackGround = new Texture(Gdx.files.internal("win.jpg"));
         tbMenu.setY(0);
         tbMenu.setX(265);
         stage.addActor(tbMenu);
@@ -46,9 +50,9 @@ public class ScrGameover implements Screen, InputProcessor {
         Gdx.gl.glClearColor(0, 0, 0, 1); //black background.
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
-        batch.draw(BackGround, 0, 0, 800, 500);
-        screenName.draw(batch, "Pikachu caught you", 255, 205);
-        screenName.draw(batch, "GAMEOVER", 275, 285);
+        batch.draw(BackGround, -100, 0, 800, 500);
+        screenName.draw(batch, "You got Pikachu's Pokeball!", 235, 285);
+        screenName.draw(batch, "YOU WIN!", 275, 205);
         batch.end();
         stage.act();
         stage.draw();
